@@ -1,0 +1,24 @@
+.toggle-btn {
+  background: transparent;
+  color: white;
+  position: fixed;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  margin: 20px;
+  line-height: 10px;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.responsive-menu-close {
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 14px;
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  left: 140px;
+}

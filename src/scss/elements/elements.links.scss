@@ -1,0 +1,9 @@
+a, a:visited, a:active, a::selection {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+a:hover {
+  text-decoration: none;
+  color: $light-green;
+}

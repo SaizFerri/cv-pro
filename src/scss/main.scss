@@ -1,0 +1,29 @@
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../../node_modules/font-awesome/scss/font-awesome.scss";
+// @import 'settings'
+@import "settings/settings.colors.scss";
+@import "settings/settings.main.scss";
+// @import 'tools'
+
+// @import 'generic'
+
+// @import 'elements'
+@import "elements/elements.main.scss";
+@import "elements/elements.links.scss";
+@import "elements/elements.lists.scss";
+// @import 'objects'
+
+// @import 'components'
+@import "components/components.navbar.scss";
+@import "components/components.header.scss";
+@import "components/components.buttons.scss";
+// @import 'utilities'
+
+.fixed {
+  position: fixed;
+}
+
+.__has-background {
+  background-color: rgba(204, 204, 204, 0.2);
+  opacity: 0.8;
+}

@@ -1,0 +1,38 @@
+.header {
+  height: 100vh;
+  color: #ffffff;
+  background: url('../assets/img/header-background.jpg');
+  background-position: center;
+  background-size: cover;
+
+  .background-img {
+    width: 100%;
+    height: inherit;
+    position: absolute;
+    z-index: -100;
+  }
+
+  .description {
+    padding-top: 100px;
+    background-color: transparent;
+
+    .picture-div {
+      justify-content: center;
+
+      .picture {
+        border-radius: 50%;
+        max-width: 200px;
+        max-height: 200px;
+        opacity: 0.8;
+      }
+    }
+
+    .description-content {
+      margin-top: 45px;
+      padding-top: 20px;
+      font-size: $big-font-size;
+      color: white;
+      text-align: center;
+    }
+  }
+}
