@@ -4,13 +4,11 @@
   background: url('../assets/img/header-background.jpg');
   background-position: center;
   background-size: cover;
-
-  .background-img {
-    width: 100%;
-    height: inherit;
-    position: absolute;
-    z-index: -100;
-  }
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  overflow: hidden;
 
   .description {
     padding-top: 100px;
@@ -18,6 +16,7 @@
 
     .picture-div {
       justify-content: center;
+      padding-top: 100px;
 
       .picture {
         border-radius: 50%;
@@ -28,6 +27,7 @@
     }
 
     .description-content {
+      justify-content: center;
       margin-top: 45px;
       padding-top: 20px;
       font-size: $big-font-size;
