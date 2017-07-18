@@ -28,13 +28,22 @@ $(window).resize(function() {
 	}
 });
 
-/* $(window).scroll(function() {
-  if ($(this).scrollTop() > 0) {
+$(window).scroll(function() {
+  /* if ($(this).scrollTop() > 0) {
     $('.menu').addClass('__has-background');
   } else {
     $('.menu').removeClass('__has-background');
-  }
-}); */
+  } */
+	let lastScroll = 0;
+	let currentScroll = $(window).scrollTop();
+	let menu = $('.menu');
+
+	if (currentScroll > 78 || currentScroll > lastScroll) {
+		menu.addClass('menu-hidden');
+	} else {
+		menu.removeClass('menu-hidden');
+	}
+});
 
 $('.toggle-btn').click(function() {
   $('.responsive-menu').toggleClass('is-open');
