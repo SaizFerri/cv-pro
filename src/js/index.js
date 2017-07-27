@@ -31,11 +31,11 @@ $(window).resize(function() {
 });
 
 $(window).scroll(function() {
-  /* if ($(this).scrollTop() > 0) {
+  if ($(this).scrollTop() > 100) {
     $('.menu').addClass('__has-background');
   } else {
     $('.menu').removeClass('__has-background');
-  } */
+  }
 	var currentScroll = $(this).scrollTop();
 	var menu = $('.menu');
 
