@@ -6,6 +6,10 @@
   background-size: cover;
   overflow: hidden;
 
+  @media (max-width: 700px) and (orientation: landscape) {
+      height: auto;
+  }
+
   .description {
     display: flex;
     justify-content: center;
@@ -30,7 +34,6 @@
     }
 
     .description-content {
-      // justify-content: center;
       margin-top: 45px;
       padding-top: 20px;
       font-size: $big-font-size;
