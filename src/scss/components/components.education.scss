@@ -1,0 +1,15 @@
+.content-card {
+  padding: 40px;
+  display: flex;
+  align-items: center;
+
+  img {
+    max-width: 260px;
+    width: 100%;
+    height: auto;
+  }
+}
+
+#work_experience {
+  background-color: $very-light-grey;
+}
