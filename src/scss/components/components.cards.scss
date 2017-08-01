@@ -10,6 +10,11 @@
     transition: left 1s ease;
   }
 
+  li {
+   list-style: circle;
+   margin-left: 30px;
+  }
+
   &.last {
     padding-bottom: 80px;
   }
