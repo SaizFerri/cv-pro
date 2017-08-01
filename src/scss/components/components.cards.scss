@@ -1,5 +1,5 @@
-.content-card {
-  padding: 40px;
+.alignment__container {
+  padding: 40px 40px 0 40px;
   display: flex;
   align-items: center;
 
@@ -8,6 +8,18 @@
     width: 100%;
     height: auto;
   }
+
+  &.last {
+    padding-bottom: 80px;
+  }
+}
+
+.title {
+  padding-left: 20px;
+}
+
+.title__icon {
+  font-size: 40px;
 }
 
 #work_experience {

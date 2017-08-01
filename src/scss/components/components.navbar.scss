@@ -9,7 +9,7 @@
   transition: top 0.3s ease-in;
 
   .menu-bar {
-    padding: 20px;
+    padding: 20px 60px 20px 60px;
 
     .menu-bar__title {
       font-size: 26px;
@@ -19,9 +19,11 @@
       display: flex;
       justify-content: flex-end;
       font-size: $big-font-size;
+      margin-top: 5px;
 
       li {
         padding: 0 10px 0 10px;
+        white-space: nowrap;
       }
     }
   }

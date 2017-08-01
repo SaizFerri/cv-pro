@@ -1,0 +1,28 @@
+#footer {
+  background-color: $very-light-grey;
+}
+
+.footer__wrapper {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+
+  .social__media__wrapper {
+    a {
+      color: #000000;
+
+      &:hover,
+      &:visited {
+        color: #000000;
+      }
+    }
+
+    .social__media {
+      padding-right: 10px;
+    }
+
+    .footer__icon {
+      font-size: $big-font-size;
+    }
+  }
+}
