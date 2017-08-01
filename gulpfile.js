@@ -19,9 +19,13 @@ gulp.task('imageMin', function() {
 });
 
 gulp.task('sass', function(){
-  gulp.src('src/scss/*.scss')
+  gulp.src([
+        'src/scss/*.scss',
+        'node_modules/animate.css/animate.min.css'
+      ])
       .pipe(sass().on('error', sass.logError))
       .pipe(minifyCss())
+      .pipe(concat('main.css'))
       .pipe(gulp.dest('dist/css'))
 });
 

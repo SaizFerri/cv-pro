@@ -7,11 +7,17 @@
     max-width: 260px;
     width: 100%;
     height: auto;
+    transition: left 1s ease;
   }
 
   &.last {
     padding-bottom: 80px;
   }
+}
+
+.is-off-view {
+  position: absolute;
+  left: -1000px;
 }
 
 .title {
