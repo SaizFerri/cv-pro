@@ -1,3 +1,89 @@
+(function($){
+
+    /**
+     * Copyright 2012, Digital Fusion
+     * Licensed under the MIT license.
+     * http://teamdf.com/jquery-plugins/license/
+     *
+     * @author Sam Sehnert
+     * @desc A small plugin that checks whether elements are within
+     *       the user visible viewport of a web browser.
+     *       only accounts for vertical position, not horizontal.
+     */
+    var $w=$(window);
+    $.fn.visible = function(partial,hidden,direction,container){
+
+        if (this.length < 1)
+            return;
+
+	// Set direction default to 'both'.
+	direction = direction || 'both';
+
+        var $t          = this.length > 1 ? this.eq(0) : this,
+						isContained = typeof container !== 'undefined' && container !== null,
+						$c				  = isContained ? $(container) : $w,
+						wPosition        = isContained ? $c.position() : 0,
+            t           = $t.get(0),
+            vpWidth     = $c.outerWidth(),
+            vpHeight    = $c.outerHeight(),
+            clientSize  = hidden === true ? t.offsetWidth * t.offsetHeight : true;
+
+        if (typeof t.getBoundingClientRect === 'function'){
+
+            // Use this native browser method, if available.
+            var rec = t.getBoundingClientRect(),
+                tViz = isContained ?
+												rec.top - wPosition.top >= 0 && rec.top < vpHeight + wPosition.top :
+												rec.top >= 0 && rec.top < vpHeight,
+                bViz = isContained ?
+												rec.bottom - wPosition.top > 0 && rec.bottom <= vpHeight + wPosition.top :
+												rec.bottom > 0 && rec.bottom <= vpHeight,
+                lViz = isContained ?
+												rec.left - wPosition.left >= 0 && rec.left < vpWidth + wPosition.left :
+												rec.left >= 0 && rec.left <  vpWidth,
+                rViz = isContained ?
+												rec.right - wPosition.left > 0  && rec.right < vpWidth + wPosition.left  :
+												rec.right > 0 && rec.right <= vpWidth,
+                vVisible   = partial ? tViz || bViz : tViz && bViz,
+                hVisible   = partial ? lViz || rViz : lViz && rViz,
+		vVisible = (rec.top < 0 && rec.bottom > vpHeight) ? true : vVisible,
+                hVisible = (rec.left < 0 && rec.right > vpWidth) ? true : hVisible;
+
+            if(direction === 'both')
+                return clientSize && vVisible && hVisible;
+            else if(direction === 'vertical')
+                return clientSize && vVisible;
+            else if(direction === 'horizontal')
+                return clientSize && hVisible;
+        } else {
+
+            var viewTop 				= isContained ? 0 : wPosition,
+                viewBottom      = viewTop + vpHeight,
+                viewLeft        = $c.scrollLeft(),
+                viewRight       = viewLeft + vpWidth,
+                position          = $t.position(),
+                _top            = position.top,
+                _bottom         = _top + $t.height(),
+                _left           = position.left,
+                _right          = _left + $t.width(),
+                compareTop      = partial === true ? _bottom : _top,
+                compareBottom   = partial === true ? _top : _bottom,
+                compareLeft     = partial === true ? _right : _left,
+                compareRight    = partial === true ? _left : _right;
+
+            if(direction === 'both')
+                return !!clientSize && ((compareBottom <= viewBottom) && (compareTop >= viewTop)) && ((compareRight <= viewRight) && (compareLeft >= viewLeft));
+            else if(direction === 'vertical')
+                return !!clientSize && ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+            else if(direction === 'horizontal')
+                return !!clientSize && ((compareRight <= viewRight) && (compareLeft >= viewLeft));
+        }
+    };
+
+})(jQuery);
+
+/**Actual Javascript **/
+
 var lastScroll = 0;
 
 $(document).ready(function(){
@@ -46,77 +132,69 @@ $(window).scroll(function() {
 	}
 
 	lastScroll = currentScroll;
-	//console.log(currentScroll);
 
 	// Animations
-	var left_image = $('.first_image').offset().top - (currentScroll + 900);
-	var sesb = $('.sesb').offset().top - (currentScroll + 100);
-	var htw = $('.htw').offset().top - 1000;
-	var htw1 = $('.htw1').offset().top - 1000;
-	var easy = $('.easy').offset().top - 1000;
-	var click = $('.click').offset().top - 1000;
-	var click1 = $('.click1').offset().top - 1000;
-	var language__animation = $('.language__animation').offset().top - 1000;
-	var github = $('.github').offset().top - 1000;
-	var contact__animation = $('.contact__animation').offset().top - 1000;
 
-	if ($(this).scrollTop() > left_image) {
+	if ($('.first_image').visible(true)) {
 		$('.left_image').addClass('animated fadeInLeft');
-	}
-
-	if ($(this).scrollTop() > left_image) {
 		$('.right_image').addClass('animated fadeInRight');
 	}
 
-	if ($(this).scrollTop() > sesb) {
+	if ($('.sesb').visible(true)) {
 		$('.sesb').addClass('animated fadeInLeft');
 	}
 
-	if ($(this).scrollTop() > htw) {
+	if ($('.htw').visible(true)) {
 		$('.htw').addClass('animated fadeInRight');
 	}
 
-	if ($(this).scrollTop() > htw1) {
+	if ($('.htw1').visible(true)) {
 		$('.htw1').addClass('animated fadeInRight');
 	}
 
-	if ($(this).scrollTop() > easy) {
+	if ($('.easy').visible(true)) {
 		$('.easy').addClass('animated fadeInLeft');
 	}
 
-	if ($(this).scrollTop() > click) {
+	if ($('.click').visible(true)) {
 		$('.click').addClass('animated fadeInRight');
 	}
 
-	if ($(this).scrollTop() > click1) {
+	if ($('.click1').visible(true)) {
 		$('.click1').addClass('animated fadeInRight');
 	}
 
-	if ($(this).scrollTop() > language__animation) {
+	if ($('.language__animation').visible(true)) {
 		$('.language__animation').addClass('animated fadeIn');
 	}
 
-	if ($(this).scrollTop() > github) {
+	if ($('.github').visible(true)) {
 		$('.github').addClass('animated fadeInLeft');
 	}
 
-	if ($(this).scrollTop() > contact__animation) {
+	if ($('.contact__animation').visible(true)) {
 		$('.contact__animation').addClass('animated fadeIn');
 	}
 
 });
 
-
 $('.toggle-btn').click(function() {
   $('.responsive-menu').toggleClass('is-open');
   $('.toggle-btn').toggleClass('menu-opened');
+	$('.invisible__menu').toggleClass('menu-opened');
+});
 
+$('.invisible__menu').click(function() {
+	console.log('hello');
+  $('.responsive-menu').toggleClass('is-open');
+  $('.toggle-btn').toggleClass('menu-opened');
+	$('.invisible__menu').toggleClass('menu-opened');
 });
 
 $('.responsive-menu-close').click(function() {
   $('.responsive-menu').toggleClass('is-open');
   setTimeout(function() {
     $('.toggle-btn').toggleClass('menu-opened');
+		$('.invisible__menu').toggleClass('menu-opened');
   }, 300)
-
-})
+});
