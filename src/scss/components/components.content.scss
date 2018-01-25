@@ -1,12 +1,17 @@
 .alignment__container {
   padding: 40px 40px 0 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 
   img {
     max-width: 260px;
     width: 100%;
     height: auto;
+    -webkit-transition: left 1s ease;
     transition: left 1s ease;
   }
 

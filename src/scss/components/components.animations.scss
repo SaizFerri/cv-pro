@@ -1,19 +1,27 @@
 .picture {
-  animation-duration: 2s;
-  animation-delay: 0.5s;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
 }
 
 .sesb, .htw, .htw1, .easy, .click, .click1, .github {
-  animation-duration: 2s;
-  animation-delay: 0.5s;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
 }
 
 .left_image, .right_image {
-  animation-duration: 3s;
-  animation-delay: 1s;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
 }
 
 .contact__animation, .language__animation {
-  animation-duration: 3s;
-  animation-delay: 0.5s;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
 }
