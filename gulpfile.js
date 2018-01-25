@@ -5,6 +5,7 @@ const imageMin = require('gulp-imagemin');
 const minifyCss = require('gulp-minify-css');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
+const gutil = require('gulp-util');
 
 gulp.task('copyHtml', function() {
   gulp.src('src/*.html')
@@ -18,9 +19,13 @@ gulp.task('imageMin', function() {
 });
 
 gulp.task('sass', function(){
-  gulp.src('src/scss/*.scss')
+  gulp.src([
+        'src/scss/*.scss',
+        'node_modules/animate.css/animate.min.css'
+      ])
       .pipe(sass().on('error', sass.logError))
       .pipe(minifyCss())
+      .pipe(concat('main.css'))
       .pipe(gulp.dest('dist/css'))
 });
 
@@ -33,6 +38,11 @@ gulp.task('scripts', function() {
       .pipe(concat('bundle.js'))
       .pipe(gulp.dest('dist/js'))
 });
+
+uglify().on('error', function(err) {
+  gutil.log(gutil.colors.red('[Error]'), err.toString());
+  this.emit('end');
+})
 
 gulp.task('fonts', function() {
   gulp.src('node_modules/font-awesome/fonts/*')

@@ -6,24 +6,28 @@
 // @import 'tools'
 
 // @import 'generic'
+@import "generic/generic.normalize.scss";
 
 // @import 'elements'
 @import "elements/elements.main.scss";
 @import "elements/elements.links.scss";
 @import "elements/elements.lists.scss";
+@import "elements/elements.headers.scss";
 // @import 'objects'
 
 // @import 'components'
 @import "components/components.navbar.scss";
 @import "components/components.header.scss";
 @import "components/components.buttons.scss";
+@import "components/components.icons.scss";
+@import "components/components.skills.scss";
+@import "components/components.content.scss";
+@import "components/components.languages.scss";
+@import "components/components.projects.scss";
+@import "components/components.animations.scss";
+@import "components/components.footer.scss";
 // @import 'utilities'
 
 .fixed {
   position: fixed;
-}
-
-.__has-background {
-  background-color: rgba(204, 204, 204, 0.2);
-  opacity: 0.8;
 }

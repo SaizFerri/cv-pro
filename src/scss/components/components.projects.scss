@@ -1,0 +1,31 @@
+#projects {
+  background-color: $very-light-grey;
+}
+
+.projects__content {
+
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 40px 40px 40px;
+
+  img {
+    width: 100%;
+    height: auto;
+    padding: 20px 0 20px 0;
+  }
+
+  a {
+    color: #000000;
+
+    &:hover,
+    &:visited {
+      color: #000000;
+    }
+  }
+}

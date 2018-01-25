@@ -4,8 +4,13 @@ body {
   padding: 0;
   height: 100%;
   width: 100%;
+  max-width: 100%;
   font-family: $main-font;
   font-size: $main-font-size;
+}
+
+html {
+  overflow-x: hidden;
 }
 
 img {
